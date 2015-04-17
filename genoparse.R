@@ -28,3 +28,17 @@ genoparse <- function(gv.actg, # gv.actg is a character vector with each entry a
 
 
 
+
+count_alleles <- function(gv.actg)
+    {
+    foo<- strsplit(gv.actg, "")
+    #strsplit() returns a list, so foo is a list, where each element in the list is a length-two character vector, consisting of the two letters of the original genotype.
+    #We convert foo to a character vector using unlist(), then put it into a matrix (with byrow=TRUE)
+    # byrow=TRUE tells R to load the character vector unlist(foo) into the matrix by putting entries 1 & 2 from unlist(foo) into the first row, entries 3&4 into row 2, etc. Note that we tell R that the matrix should have 2 columns. thus, each element of the list foo becomes a row in the matrix f2.
+    f2<- matrix(ncol = 2, data=unlist(foo), byrow=TRUE)
+    o1  <- apply(FUN = function(x)sum(x==f2[1]), X = f2, MARGIN=1)
+    names(o1)<- names(gv.actg)
+    return(o1)
+    }
+
+
