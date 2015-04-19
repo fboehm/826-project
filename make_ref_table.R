@@ -5,6 +5,7 @@ count_alleles <- function(gv_actg)
     {
     foo<- strsplit(gv_actg, "")
     #strsplit() returns a list, so foo is a list, where each element in the list is a length-two character vector, consisting of the two letters of the original genotype.
+    # We should add a check to ensure that the input, gv_actg, has proper format & structure
     #We convert foo to a character vector using unlist(), then put it into a matrix (with byrow=TRUE)
     # byrow=TRUE tells R to load the character vector unlist(foo) into the matrix by putting entries 1 & 2 from unlist(foo) into the first row, entries 3&4 into row 2, etc. Note that we tell R that the matrix should have 2 columns. thus, each element of the list foo becomes a row in the matrix f2.
     ufoo<- unlist(foo)
