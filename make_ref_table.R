@@ -20,7 +20,7 @@ label_ref_snp<- function(gv_actg)
     ufoo<- unlist(foo)
     ref <- ufoo[1] #arbitrarily set first entry to be 'ref' allele
     other <- ufoo[ufoo != ref][1] # choose (arbitrarily) the first entry in the vector of those characters that aren't ref.
-    #* we should write a test to verify that we the input has only two alleles present.
+    #* we should write a test to verify that the input has only two alleles present.
     o2 <- c(ref, other)
     names(o2)<- c("reference", "other")
     gv_unlist <- ufoo
